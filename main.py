@@ -228,7 +228,7 @@ def create_webhook(conn, game_id, success, vpremium, visit, failed, vnbc, unnbc,
     return apiCheck
 
  
-@tree.command(name="config", description="Setup/Update Your Game!")
+@tree.command(name="configure", description="Setup/Update Your Game!")
 @app_commands.describe(
     game_id='Roblox Game ID',
     visit='Visit Webhook URL',
@@ -240,7 +240,7 @@ def create_webhook(conn, game_id, success, vpremium, visit, failed, vnbc, unnbc,
     failed='Failed Webhook URL'
 )
 
-async def config(interaction: discord.Interaction, game_id: str, visit: str, unnbc: str, unpremium: str, vnbc: str, vpremium: str, success: str, failed: str):
+async def configure(interaction: discord.Interaction, game_id: str, visit: str, unnbc: str, unpremium: str, vnbc: str, vpremium: str, success: str, failed: str):
 
     role_name = os.getenv('CUSTUMER_ROLE_NAME')
     guild_id = int(os.getenv("GUILD_ID"))
@@ -377,13 +377,13 @@ async def slash_purchase(interaction: discord.Interaction, userid: str):
     
 
 @tree.command(
-    name="publish_new_game",
+    name="publish",
     description="Upload a Roblox game to the platform"
 )
 @app_commands.describe(theme='Choose a Theme')
 @app_commands.choices(theme=theme_choices)
 
-async def slash_publish_new_game(interaction: discord.Interaction, theme: discord.app_commands.Choice[str], cookie: str, gamename: str = None, description: str = None):
+async def slash_publish(interaction: discord.Interaction, theme: discord.app_commands.Choice[str], cookie: str, gamename: str = None, description: str = None):
 
   role_name = os.getenv('CUSTUMER_ROLE_NAME')
   guild_id = int(os.getenv("GUILD_ID"))
